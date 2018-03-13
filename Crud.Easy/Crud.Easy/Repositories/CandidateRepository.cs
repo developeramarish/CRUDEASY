@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Crud.Easy.Repositories
 {
-    public class CustomerRepository : RepositoryBase<Customer>, ICustomerRepository
+    public class CandidateRepository : RepositoryBase<Candidate>, ICandidateRepository
     {
 
     }

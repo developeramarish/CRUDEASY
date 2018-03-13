@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Crud.Easy.Domain.Interfaces.Services
 {
-    public interface ICustomerService : IServiceBase<Customer> 
+    public interface ICandidateService : IServiceBase<Candidate> 
     {
     }
 }

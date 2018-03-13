@@ -9,31 +9,31 @@ using System.Threading.Tasks;
 
 namespace Crud.Easy.Services
 {
-    public class CustomerService : ServiceBase<Customer> , ICustomerService
+    public class CandidateService : ServiceBase<Candidate> , ICandidateService
     {
-        private readonly ICustomerRepository _customerRepository;
+        private readonly ICandidateRepository _candidateRepository;
 
-        public CustomerService(IRepositoryBase<Customer> repository, ICustomerRepository customerRepository) : base(repository)
+        public CandidateService(IRepositoryBase<Candidate> repository, ICandidateRepository candidateRepository) : base(repository)
         {
-            _customerRepository = customerRepository;
+            _candidateRepository = candidateRepository;
         }
 
-        public override bool Insert(Customer obj, out string error)
+        public override bool Insert(Candidate obj, out string error)
         {
             if (!obj.IsValid())
             {
-                error = "Dados do cliente invalidos";
+                error = "Dados do candidado invalidos";
                 return false;
             }
             error = "";
             return base.Insert(obj, out error);
         }
 
-        public override bool Update(Customer obj, out string error)
+        public override bool Update(Candidate obj, out string error)
         {
             if (!obj.IsValid())
             {
-                error = "Cliente com dados inválidos";
+                error = "Candidado com dados inválidos";
                 return false;
             }
             return base.Update(obj, out error);

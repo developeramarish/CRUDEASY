@@ -3,7 +3,7 @@ using Crud.Easy.Domain.Repositories.Interfaces;
 
 namespace Crud.Easy.Domain.Interfaces.Repositories
 {
-    public interface ICustomerRepository : IRepositoryBase<Customer>
+    public interface ICandidateRepository : IRepositoryBase<Candidate>
     {
 
     }

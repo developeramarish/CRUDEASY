@@ -42,8 +42,8 @@ namespace Crud.Easy
             // Aplicando injeção de dependencia 
             services.AddSingleton(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
             services.AddSingleton(typeof(IServiceBase<>), typeof(ServiceBase<>));
-            services.AddSingleton<ICustomerRepository, CustomerRepository>();
-            services.AddSingleton<ICustomerService, CustomerService>();
+            services.AddSingleton<ICandidateRepository, CandidateRepository>();
+            services.AddSingleton<ICandidateService, CandidateService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
