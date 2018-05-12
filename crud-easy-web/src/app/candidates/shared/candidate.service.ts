@@ -4,41 +4,42 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
-import {Customer} from'./Customer.model'
+import { Candidate} from'./Candidate.model'
+import { Bank } from'./Bank.model'
 
 @Injectable()
-export class CustomerService {
+export class CandidateService {
 
-  selectedCustomer : Customer;
-  customerList : Customer[];
+  selectedCandidate : Candidate;
+  candidateList : Candidate[];
   constructor(private http : Http) { }
 
-  postCustomer(cust : Customer){
-    var body = JSON.stringify(cust);
-
+  postCandidate(can : Candidate){
+    var body = JSON.stringify(can);
+    console.log(can);
     var headerOptions = new Headers({'Content-Type':'application/json; charset=utf-8'});
     let options = new RequestOptions({ headers: headerOptions });
-    return this.http.post('http://localhost:25859/api/Customer',body,options).map(x => x.json());
+    return this.http.post('http://localhost:25859/api/Candidate',body,options).map(x => x.json());
   }
 
-  putCustomer(id, cust) {
+  putCandidate(id, cust) {
     var body = JSON.stringify(cust);
     var headerOptions = new Headers({'Content-Type':'application/json; charset=utf-8'});
     let options = new RequestOptions({ headers: headerOptions });
-    return this.http.put('http://localhost:25859/api/Customer/' + id,
+    return this.http.put('http://localhost:25859/api/Candidate/' + id,
       body,
       options).map(res => res.json());
   }
-  getCustomerList(){
-    this.http.get('http://localhost:25859/api/Customer')
+  getCandidateList(){
+    this.http.get('http://localhost:25859/api/Candidate')
     .map((data : Response) =>{
-      return data.json() as Customer[];
+      return data.json() as Candidate[];
     }).toPromise().then(x => {
-      this.customerList = x;
+      this.candidateList = x;
     })
   }
 
-  deleteCustomer(id: number) {
-    return this.http.delete('http://localhost:25859/api/Customer/' + id).map(res => res.json());
+  deleteCandidate(id: number) {
+    return this.http.delete('http://localhost:25859/api/Candidate/' + id).map(res => res.json());
   }
 }

@@ -4,18 +4,18 @@ import { FormsModule} from '@angular/forms'
 import { HttpModule } from '@angular/http'
 
 import { AppComponent } from './app.component';
-import { CustomersComponent } from './customers/customers.component';
-import { CustomerComponent } from './customers/customer/customer.component';
-import { CustomerListComponent } from './customers/customer-list/customer-list.component';
+import { CandidatesComponent } from './Candidates/Candidates.component';
+import { CandidateComponent } from './Candidates/candidate/candidate.component';
+import { CandidateListComponent } from './Candidates/candidate-list/candidate-list.component';
 
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
-    CustomersComponent,
-    CustomerComponent,
-    CustomerListComponent
+    CandidatesComponent,
+    CandidateComponent,
+    CandidateListComponent
   ],
   imports: [
     BrowserModule,

@@ -20,13 +20,13 @@ namespace Crud.Easy.Services
 
         public override bool Insert(Candidate obj, out string error)
         {
-            if (!obj.IsValid())
+            if (obj.IsValid())
             {
                 error = "Dados do candidado invalidos";
                 return false;
             }
             error = "";
-            return base.Insert(obj, out error);
+            return _candidateRepository.Insert(obj);
         }
 
         public override bool Update(Candidate obj, out string error)

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Crud.Easy.Domain.Entities;
 using Crud.Easy.Domain.Interfaces.Services;
+using Crud.Easy.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -37,10 +38,13 @@ namespace Crud.Easy.Controllers
         
        
         [HttpPost]
-        public ActionResult Post([FromBody]Candidate candidate)
+        public ActionResult Post([FromBody]CandidateViewModel candidate)
         {
+
+            Candidate c = new Candidate();
+            c = AutoMapper.Mapper.Map<CandidateViewModel, Candidate>(candidate);
             string error = string.Empty;
-            if (_candidateService.Insert(candidate, out error))
+            if (_candidateService.Insert(c, out error))
             {
                 return StatusCode(200, Json("candidate criado com sucesso"));
             }

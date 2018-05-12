@@ -9,7 +9,7 @@ namespace Crud.Easy.Domain.Entities
         [Key]
         public long CandidateId { get; set; }
 
-        public string Nome { get; set; }
+        public string Name { get; set; }
 
         public string Email { get; set; }
 
@@ -21,7 +21,7 @@ namespace Crud.Easy.Domain.Entities
 
         public string City { get; set; }
 
-        public string Stade { get; set; }
+        public string State { get; set; }
 
         public string Portfolio { get; set; }
 
@@ -47,11 +47,11 @@ namespace Crud.Easy.Domain.Entities
 
         public int Salary { get; set; }
    
-        public string LinkCrud { get; set; }
+        public string CrudLink { get; set; }
 
-        public int KnowledgementId { get; set; }
+        public long KnowledgementId { get; set; }
 
-        public int BankId { get; set; }
+        public long BankId { get; set; }
 
         [Write(false)]
         public Knowledgement Knowledgement { get; set; }

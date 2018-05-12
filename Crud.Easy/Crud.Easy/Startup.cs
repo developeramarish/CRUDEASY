@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Crud.Easy.Context;
+using Crud.Easy.Domain.Entities;
 using Crud.Easy.Domain.Interfaces.Repositories;
 using Crud.Easy.Domain.Interfaces.Services;
 using Crud.Easy.Domain.Repositories.Interfaces;
+using Crud.Easy.Helpers;
+using Crud.Easy.Models;
 using Crud.Easy.Repositories;
 using Crud.Easy.Services;
 using Microsoft.AspNetCore.Builder;
@@ -38,6 +42,10 @@ namespace Crud.Easy
                        .AllowAnyMethod()
                        .AllowAnyHeader();
             }));
+
+            services.AddAutoMapper(x => x.AddProfile(new MappingsProfile()));
+
+            //services.AddAutoMapper();
 
             // Aplicando injeção de dependencia 
             services.AddSingleton(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
