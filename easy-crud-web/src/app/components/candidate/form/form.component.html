@@ -1,0 +1,216 @@
+<form [formGroup]="formGroup" class="container form-horizontal" (ngSubmit)="onAddCandidate()">
+  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home"
+        aria-selected="true">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile"
+        aria-selected="false">Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact"
+        aria-selected="false">Contact</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" id="name"formControlName="name" placeholder="Nome">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="email" placeholder="Email">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" id="skype" placeholder="Skype">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="cellphone" placeholder="cellphone">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" id="linkedinAddress" placeholder="Linkedin">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="portfolio" placeholder="Portifolio">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="fourHours" value=""> 4 horas
+          </label>
+        </div>
+        <div class="col">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="fourSixHours" value=""> 4 à 6 horas
+          </label>
+        </div>
+        <div class="col">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="sixEightHours " value=""> 6 à 8 horas
+          </label>
+        </div>
+        <div class="col">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="eightHours" value=""> 8 horas
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="morning" value=""> Manhã
+          </label>
+        </div>
+        <div class="col">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="Afternoon" value=""> Tarde
+          </label>
+        </div>
+        <div class="col">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="Night " value=""> Noite
+          </label>
+        </div>
+        <div class="col">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="Dawn" value=""> Madrugada
+          </label>
+        </div>
+        <div class="col">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="Comercial" value=""> Comercial
+          </label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" id="salary" placeholder="Salario">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="crudLink" placeholder="Link do crud">
+        </div>
+      </div>
+    </div> <!-- END CANDIDATE-->
+    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+      <!-- BANK -->
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" id="Recipient" placeholder="Recebedor">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="CPFRecipient" placeholder="CPF Recipient">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" id="BankName" placeholder="Recebedor">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="Agency" placeholder="CPF Recebedor">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="Account" placeholder="Conta">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="Savings" value=""> Poupança
+          </label>
+        </div>
+        <div class="col">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="Chain" value=""> Corrente
+          </label>
+        </div>
+      </div>
+    </div><!-- END BANK-->
+    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" id="Ionic" placeholder="Ionic">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="Android" placeholder="Android">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="Ios" placeholder="Ios">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="Html" placeholder="Html">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="Css" placeholder="Bootstrap">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="Jquery" placeholder="Angular">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" id="Java" placeholder="Asp">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="C" placeholder="C">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="Cplusplus" placeholder="Cplusplus">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="Cake" placeholder="Django">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="Magento" placeholder="Magento">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="Php" placeholder="Php">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" id="Wordpress" placeholder="Python">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="Ruby" placeholder="SqlServer">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="MySql" placeholder="MySql">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="Salesforce" placeholder="Salesforce">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="Photoshop" placeholder="Photoshop">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" id="Illustrator" placeholder="Illustrator">
+        </div>
+      </div>
+      <div class="row">
+          <div class="col">
+              <input type="text" class="form-control" id="others" placeholder="Outros">
+            </div>
+      </div>
+    </div>
+    <!---->
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+        <div class="text-center" >
+            <input
+              type="submit"
+              class="btn btn-primary"
+              [value]="buttonSaveLabel"
+              style="padding-left: 50px; padding-right: 50px"
+             />
+          </div>
+    </div>
+  </div>
+</form>
