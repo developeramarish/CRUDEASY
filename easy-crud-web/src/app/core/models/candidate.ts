@@ -12,8 +12,11 @@ export class Candidate {
   sixEightHours: boolean;
   eightHours: boolean;
   hoursOnWeekends: boolean;
+  morning: boolean;
+  afternoon: boolean;
   night: boolean;
   dawn: boolean;
+  comercial: boolean;
   salary: number;
   crudLink: string;
   recipient: string;

@@ -21,8 +21,31 @@ export class FormComponent implements OnInit {
   createFormGroup() {
     this.formGroup = this._formBuilder.group({
       id: '',
-      name: ['', ]
-
+      name: ['', ],
+      email: ['', ],
+      skypeAddress: ['', ],
+      cellphone: ['', ],
+      linkedinAddress: ['', ],
+      city: ['', ],
+      state: ['', ],
+      portfolio: ['', ],
+      fourHours: false,
+      fourSixHours: false,
+      sixEightHours: false,
+      eightHours: false,
+      hoursOnWeekends: false,
+      comercial: false,
+      morning: false,
+      night: false,
+      afternoon: false,
+      dawn: false,
+      salary: ['', ],
+      crudLink: ['', ],
+      recipient: ['', ],
+      bankName: ['', ],
+      agency: ['', ],
+      account: false,
+      savings: false,
     });
   }
 

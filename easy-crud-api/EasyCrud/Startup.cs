@@ -1,12 +1,15 @@
-﻿using EasyCrud.Context;
+﻿using EasyCrud.AutoMapper;
+using EasyCrud.Context;
 using EasyCrud.Domain.Interfaces;
 using EasyCrud.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Swashbuckle.AspNetCore.Swagger;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace EasyCrud
 {
@@ -24,7 +27,26 @@ namespace EasyCrud
         {
             services.AddMvc();
 
-			services.AddScoped<ICandidateRepository, CandidateRepository>();
+            AutoMapperConfig.RegisterMappings();
+
+            services.AddScoped<ICandidateRepository, CandidateRepository>();
+
+            
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "SHAREBOOK API", Version = "v1" });
+                c.ResolveConflictingActions(x => x.First());
+                c.AddSecurityDefinition("Bearer", new ApiKeyScheme
+                {
+                    Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+                    Name = "Authorization",
+                    In = "header",
+                    Type = "apiKey"
+                });
+                c.AddSecurityRequirement(new Dictionary<string, IEnumerable<string>> {
+                    { "Bearer", Enumerable.Empty<string>() },
+                });
+            });
 
 			services.AddCors(options => {
 				options.AddPolicy("AllowAllHeaders",
@@ -47,6 +69,13 @@ namespace EasyCrud
             }
            
             app.UseMvc();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "CRUD EASY API V1");
+            });
+
         }
     }
 }

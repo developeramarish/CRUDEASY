@@ -1,6 +1,8 @@
-﻿using EasyCrud.Domain.Entities;
+﻿using AutoMapper;
+using EasyCrud.Domain.Entities;
 using EasyCrud.Domain.Interfaces;
 using EasyCrud.Repositories;
+using EasyCrud.ViewModels;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -37,16 +39,18 @@ namespace EasyCrud.Controllers
 
 		// POST api/values
 		[HttpPost]
-		public void Post([FromBody] Candidate candidate)
+		public void Post([FromBody] CandidateViewModel candidateVM)
 		{
-			_candidateRepository.Insert(candidate);
+            var candidate = Mapper.Map<CandidateViewModel, Candidate>(candidateVM);
+            _candidateRepository.Insert(candidate);
 		}
 
 		// PUT api/values/5
 		[HttpPut("{id}")]
-		public void Put([FromBody] Candidate candidate, string id)
+		public void Put([FromBody] CandidateViewModel candidateVM, string id)
 		{
-            candidate.Id = new Guid(id);
+            candidateVM.Id = new Guid(id);
+            var candidate = Mapper.Map<CandidateViewModel, Candidate>(candidateVM);
             _candidateRepository.Update(candidate);
         }
 
