@@ -1,4 +1,5 @@
 ﻿using EasyCrud.Domain.Entities;
+using EasyCrud.Mappings;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System.IO;
@@ -18,7 +19,10 @@ namespace EasyCrud.Context
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			base.OnModelCreating(modelBuilder);
+           
+            base.OnModelCreating(modelBuilder);
+            new CandidateMapping(modelBuilder.Entity<Candidate>());
+            new KnowledgeMapping(modelBuilder.Entity<Knowledge>());
 		}
 
 		public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
