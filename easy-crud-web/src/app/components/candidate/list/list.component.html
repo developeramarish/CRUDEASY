@@ -1,13 +1,10 @@
-<table class="table table-sm table-hover">
-  <tr>
-    <td>sadasdad</td>
-    <td>
-      <a class="btn" (click)="showForEdit(candidate)">
-        <i class="fa fa-pencil-square-o"></i>
-      </a>
-      <a class="btn text-danger" (click)="onDelete(candidate.candidateId)">
-        <i class="fa fa-trash-o"></i>
-      </a>
-    </td>
-  </tr>
-</table>
+<div class="container">
+    <h1 class="text-center display-4">Lista Candidados</h1>
+    <div class="row justify-content-end" style="margin-bottom: 10px">
+      <div class="col-3">
+        <input #search class="form-control" type="text" placeholder="Search..." >
+      </div>
+    </div>
+    <ng2-smart-table class="table" [settings]="settings" [source]="candidates" (custom)="onCustom($event)">
+    </ng2-smart-table>
+  </div>

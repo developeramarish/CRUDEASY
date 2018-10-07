@@ -1,5 +1,6 @@
 export class Candidate {
   id: string;
+  name: string;
   email: string;
   skypeAddress: string;
   cellphone: string;

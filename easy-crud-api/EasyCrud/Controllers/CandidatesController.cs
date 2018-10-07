@@ -25,16 +25,20 @@ namespace EasyCrud.Controllers
 
 		// GET api/values
 		[HttpGet]
-		public IEnumerable<Candidate> Get()
+		public IEnumerable<CandidateViewModel> Get()
 		{
-            return _candidateRepository.GetAll();
-		}
+            var candidates = _candidateRepository.GetAll();
+            var candidatesVM = Mapper.Map<IEnumerable<Candidate>, IEnumerable<CandidateViewModel>>(candidates);
+            return candidatesVM;
+        }
 
 		// GET api/values/5
 		[HttpGet("{id}")]
-		public Candidate Get(int id)
+		public CandidateViewModel Get(Guid id)
 		{
-            return _candidateRepository.Get();
+            var candidate =  _candidateRepository.Get(id);
+            var candidateVM = Mapper.Map<Candidate, CandidateViewModel>(candidate);
+            return candidateVM;
         }
 
 		// POST api/values
@@ -56,9 +60,9 @@ namespace EasyCrud.Controllers
 
 		// DELETE api/values/5
 		[HttpDelete("{id}")]
-		public void Delete([FromBody] Candidate candidate, string id)
+		public void Delete(Guid id)
 		{
-            candidate.Id = new Guid(id);
+           var candidate =  _candidateRepository.Get(id);
             _candidateRepository.Delete(candidate);
         }
 	}

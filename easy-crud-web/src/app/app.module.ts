@@ -7,6 +7,7 @@ import { FormComponent } from './components/candidate/form/form.component';
 import { ListComponent } from './components/candidate/list/list.component';
 import { CandidateService } from './core/services/candidate.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2SmartTableModule
   ],
   providers: [CandidateService],
   bootstrap: [AppComponent]
