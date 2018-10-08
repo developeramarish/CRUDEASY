@@ -18,7 +18,7 @@ namespace EasyCrud.UnitTests.Validators
             {
                    Name = "Walter",
                    Email = "walter.vlopes@gmail.com",
-                   CPFRecipient = "4166763873",
+                   CPFRecipient = "44166763871",
                    CrudLink = "www.github.com\\walter",
                    Portfolio = "www.github.com\\walter",
                    Cellphone = "999999999"

@@ -155,12 +155,22 @@ export class FormComponent implements OnInit {
   onAddCandidate() {
     if (!this.formGroup.value.id) {
       this._scCandidate.create(this.formGroup.value).subscribe(resp => {
-        this._scAlert.success('Registro criado com sucesso.');
+        if(resp != null){
+          this._scAlert.error(resp[0].errorMessage);
+        } else {
+          this._scAlert.success('Registro criado com sucesso.');
+        }
+
         }
       );
     } else {
       this._scCandidate.update(this.formGroup.value).subscribe(resp => {
-        this._scAlert.success('Registro editado com sucesso.');
+        if(resp != null){
+          this._scAlert.error(resp[0].errorMessage);
+        }else {
+          this._scAlert.success('Registro editado com sucesso.');
+        }
+
         }
       );
     }

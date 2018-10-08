@@ -10,13 +10,15 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { AlertService } from './core/services/alert/alert.service';
 import { AlertComponent } from './core/directiva/alert/alert.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
     ListComponent,
-    AlertComponent
+    AlertComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
