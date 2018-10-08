@@ -5,10 +5,8 @@ using System.Threading.Tasks;
 
 namespace EasyCrud.Domain.Entities
 {
-    public class Knowledge
+    public class Knowledge : BaseEntity
     {
-		public Guid Id { get; set; }
-
         public int Ionic { get; set; }
 
         public int Android { get; set; }
@@ -60,5 +58,9 @@ namespace EasyCrud.Domain.Entities
         public int? Seo { get; set; }
 
         public string Others { get; set; }
+
+        public Guid CandidateId { get; set; }
+
+        public virtual Candidate Candidate { get; set;}
     }
 }

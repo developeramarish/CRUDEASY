@@ -78,6 +78,8 @@ namespace EasyCrud.Mappings
              .HasColumnType("varchar(15)")
              .HasMaxLength(15)
              .IsRequired();
+
+            entityBuilder.HasOne(t => t.Knowledge);
         }
     }
 }

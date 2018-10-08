@@ -80,6 +80,23 @@ export class ListComponent implements OnInit {
       }
     };
   }
+  onSearch(query: string = '') {
+    if (!query) {
+      this.candidates.reset();
+    } else {
+      this.candidates.setFilter([
+        // fields we want to include in the search
+        {
+          field: 'name',
+          search: query
+        },
+        {
+          field: 'email',
+          search: query
+        },
+      ], false);
+    }
+  }
   onCustom(event) {
     if (event.action === 'delete') {
       this._scCandidate.delete(event.data.id).subscribe(resp => {

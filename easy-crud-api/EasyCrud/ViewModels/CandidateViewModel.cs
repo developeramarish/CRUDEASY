@@ -4,6 +4,7 @@ namespace EasyCrud.ViewModels
     public class CandidateViewModel
     {
         public Guid Id { get; set; }
+        public Guid KnowledgeId { get; set; }
 
         public string Name { get; set; }
 

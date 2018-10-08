@@ -33,7 +33,8 @@ namespace EasyCrud.AutoMapper
                   .ForPath(dest => dest.Django, opt => opt.MapFrom(src => src.Knowledge.Django))
                   .ForPath(dest => dest.Bootstrap, opt => opt.MapFrom(src => src.Knowledge.Bootstrap))
                   .ForPath(dest => dest.Ruby, opt => opt.MapFrom(src => src.Knowledge.Ruby))
-                  .ForPath(dest => dest.MySql, opt => opt.MapFrom(src => src.Knowledge.MySql));
+                  .ForPath(dest => dest.MySql, opt => opt.MapFrom(src => src.Knowledge.MySql))
+                   .ForPath(dest => dest.KnowledgeId, opt => opt.MapFrom(src => src.Knowledge.Id));
         }
     }
 }

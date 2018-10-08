@@ -31,7 +31,7 @@ namespace EasyCrud
 
             services.AddScoped<ICandidateRepository, CandidateRepository>();
 
-            
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "SHAREBOOK API", Version = "v1" });
@@ -48,17 +48,19 @@ namespace EasyCrud
                 });
             });
 
-			services.AddCors(options => {
-				options.AddPolicy("AllowAllHeaders",
-					  builder => {
-						  builder.AllowAnyOrigin()
-								 .AllowAnyHeader()
-								 .AllowAnyMethod();
-					  });
-			});
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAllHeaders",
+                      builder =>
+                      {
+                          builder.AllowAnyOrigin()
+                                 .AllowAnyHeader()
+                                 .AllowAnyMethod();
+                      });
+            });
 
-			services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-		}
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -71,13 +73,25 @@ namespace EasyCrud
             app.UseCors(builder =>
             builder.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod());
 
-            app.UseMvc();
+           
 
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "CRUD EASY API V1");
             });
+
+
+            app.UseMvc();
+
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                var scopeServiceProvider = serviceScope.ServiceProvider;
+                var context = serviceScope.ServiceProvider.GetService<ApplicationDbContext>();
+                context.Database.Migrate();
+                var seeder = new Seed(context);
+                seeder.SeedDB();
+            }
 
         }
     }

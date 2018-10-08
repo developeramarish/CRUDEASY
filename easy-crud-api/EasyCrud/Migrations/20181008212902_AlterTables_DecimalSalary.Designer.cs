@@ -11,9 +11,10 @@ using System;
 namespace EasyCrud.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181008212902_AlterTables_DecimalSalary")]
+    partial class AlterTables_DecimalSalary
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -78,6 +79,8 @@ namespace EasyCrud.Migrations
 
                     b.Property<bool>("HoursOnWeekends");
 
+                    b.Property<Guid>("KnowledgeId");
+
                     b.Property<string>("LinkedinAddress")
                         .IsRequired()
                         .HasColumnType("varchar(200)")
@@ -117,6 +120,8 @@ namespace EasyCrud.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("KnowledgeId");
+
                     b.ToTable("Candidates");
                 });
 
@@ -136,8 +141,6 @@ namespace EasyCrud.Migrations
                     b.Property<int?>("C");
 
                     b.Property<int?>("Cake");
-
-                    b.Property<Guid>("CandidateId");
 
                     b.Property<int?>("Cplusplus");
 
@@ -184,17 +187,14 @@ namespace EasyCrud.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CandidateId")
-                        .IsUnique();
-
                     b.ToTable("Knowledges");
                 });
 
-            modelBuilder.Entity("EasyCrud.Domain.Entities.Knowledge", b =>
+            modelBuilder.Entity("EasyCrud.Domain.Entities.Candidate", b =>
                 {
-                    b.HasOne("EasyCrud.Domain.Entities.Candidate", "Candidate")
-                        .WithOne("Knowledge")
-                        .HasForeignKey("EasyCrud.Domain.Entities.Knowledge", "CandidateId")
+                    b.HasOne("EasyCrud.Domain.Entities.Knowledge", "Knowledge")
+                        .WithMany()
+                        .HasForeignKey("KnowledgeId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

@@ -20,9 +20,12 @@ namespace EasyCrud.Repositories
 			_dbSet = _context.Set<Candidate>();
 		}
 
-		public Candidate Get(params object[] keyValues) => _dbSet.Find(keyValues);
+        public Candidate Get(Guid id)
+        {
+            return _dbSet.AsQueryable().Where(x => x.Id == id).Include(x => x.Knowledge).FirstOrDefault();
+        }
 
-		public IEnumerable<Candidate> GetAll() => _dbSet.ToList();
+		public IEnumerable<Candidate> GetAll() => _dbSet.AsQueryable().Include(x => x.Knowledge).ToList();
 
 		public Candidate Insert(Candidate candidate)
 		{
@@ -34,7 +37,7 @@ namespace EasyCrud.Repositories
 
 		public Candidate Update(Candidate candidate)
 		{
-			_dbSet.Update(candidate);
+            _dbSet.Update(candidate);
             _context.SaveChanges();
             return candidate;
 		}

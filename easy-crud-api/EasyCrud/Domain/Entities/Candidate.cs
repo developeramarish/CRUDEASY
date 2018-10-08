@@ -2,9 +2,8 @@
 
 namespace EasyCrud.Domain.Entities
 {
-    public class Candidate
+    public class Candidate : BaseEntity
     {
-		public Guid Id { get; set; }
 
 		public string Name { get; set; }
 
@@ -42,7 +41,7 @@ namespace EasyCrud.Domain.Entities
 
         public bool Comercial { get; set; }
 
-        public int Salary { get; set; }
+        public decimal Salary { get; set; }
 
         public string CrudLink { get; set; }
 
@@ -61,9 +60,6 @@ namespace EasyCrud.Domain.Entities
         public bool Chain { get; set; }
 
         public bool Savings { get; set; }
-
-
-        public Guid KnowledgeId { get; set; }
 
 		public virtual Knowledge Knowledge { get; set; }
 	}

@@ -9,6 +9,7 @@ export class CandidateService {
 
   public create(candidate: Candidate) {
     delete candidate.id;
+    delete candidate.knowledgeId;
     return this._http.post<any>(`http://localhost:5982/api/candidates`, candidate);
   }
 

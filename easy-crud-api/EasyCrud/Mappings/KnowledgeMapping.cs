@@ -18,6 +18,7 @@ namespace EasyCrud.Mappings
                  .HasColumnType("varchar(300)")
                  .HasMaxLength(300)
                  .IsRequired();
+
         }
     }
 }

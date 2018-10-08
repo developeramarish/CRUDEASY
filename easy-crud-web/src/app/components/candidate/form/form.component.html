@@ -1,4 +1,4 @@
-<h1>Talentos EASY.ROCKYS</h1>
+<h1>Talentos EASYROCKS</h1>
 <br />
 <hr />
 <form [formGroup]="formGroup" class="container form-horizontal" (ngSubmit)="onAddCandidate()">
@@ -239,7 +239,12 @@
       <div class="row">
           <div class="col">
               <label  class="control-label">Others</label>
-              <input type="number" class="form-control" formControlName="others" id="others" placeholder="Outros">
+              <input type="text" class="form-control" formControlName="others" id="others" placeholder="Outros">
+            </div>
+      </div>
+      <div class="row" hidden>
+          <div class="col">
+              <input type="text" class="form-control" formControlName="knowledgeId">
             </div>
       </div>
     </div>

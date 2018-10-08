@@ -1,11 +1,12 @@
 ﻿using EasyCrud.Domain.Entities;
+using System;
 using System.Collections.Generic;
 
 namespace EasyCrud.Domain.Interfaces
 {
     public interface ICandidateRepository
 	{
-		Candidate Get(params object[] keyValues);
+		Candidate Get(Guid id);
 
         IEnumerable<Candidate> GetAll();
 

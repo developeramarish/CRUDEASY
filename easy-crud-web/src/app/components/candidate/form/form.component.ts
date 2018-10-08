@@ -24,6 +24,7 @@ export class FormComponent implements OnInit {
   createFormGroup() {
     this.formGroup = this._formBuilder.group({
       id: '',
+      knowledgeId: '',
       name: ['', ],
       email: ['', ],
       skypeAddress: ['', ],
@@ -111,7 +112,7 @@ export class FormComponent implements OnInit {
           jquery: x.jquery,
           angular: x.angular,
           java: x.java,
-
+          knowledgeId: x.knowledgeId,
           ionic: x.ionic,
           android: x.android,
           ios: x.ios,

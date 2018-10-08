@@ -53,4 +53,5 @@ export class Candidate {
   illustrator: number;
   seo: number;
   others: string;
+  knowledgeId: string
 }
