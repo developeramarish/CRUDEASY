@@ -216,6 +216,7 @@ namespace EasyCrud.TestsUI.PageObject
         public void Save(CandidateViewModel candidate)
         {
             FillCandidate(candidate);
+            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             BtnSave.Click();
         }
 
