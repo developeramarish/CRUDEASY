@@ -2,7 +2,9 @@
 
 using EasyCrud.TestsUI.Helpers;
 using EasyCrud.ViewModels;
+
 using EasyCrud.TestsUI.Tests;
+using System;
 
 namespace EasyCrud.TestsUI.PageObject
 {
@@ -69,7 +71,7 @@ namespace EasyCrud.TestsUI.PageObject
         {
             get
             {
-                return _driver.FindElement(By.Id("portfolio"));
+                return _driver.FindElement(By.Id("portfolio"), 5);
             }
         }
 
@@ -237,6 +239,7 @@ namespace EasyCrud.TestsUI.PageObject
 
         public void FillBank(CandidateViewModel candidate)
         {
+            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             Account.EnterText(candidate.Account);
             Chain.Click();
             Recipient.EnterText(candidate.Recipient);

@@ -20,7 +20,8 @@ namespace EasyCrud.UnitTests.Validators
                    Email = "walter.vlopes@gmail.com",
                    CPFRecipient = "4166763873",
                    CrudLink = "www.github.com\\walter",
-                   Portfolio = "www.github.com\\walter"
+                   Portfolio = "www.github.com\\walter",
+                   Cellphone = "999999999"
             };
 
             var result = validator.Validate(candidate);

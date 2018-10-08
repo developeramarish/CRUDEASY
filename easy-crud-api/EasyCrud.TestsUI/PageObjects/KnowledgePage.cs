@@ -3,6 +3,7 @@
 using EasyCrud.TestsUI.Helpers;
 using EasyCrud.ViewModels;
 using EasyCrud.TestsUI.Tests;
+using System;
 
 namespace EasyCrud.TestsUI.Tests
 {
@@ -156,6 +157,7 @@ namespace EasyCrud.TestsUI.Tests
 
         public void FillKnowledge(CandidateViewModel candidate)
         {
+            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             Ionic.EnterText(candidate.Ionic.ToString());
             Android.EnterText(candidate.Android.ToString());
             Angular.EnterText(candidate.Angular.ToString());
