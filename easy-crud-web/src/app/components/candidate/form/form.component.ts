@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Candidate } from '../../../core/models/candidate';
 import { FormBuilder, FormGroup, Validators, FormArray, FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-
+import { AlertService } from '../../../core/services/alert/alert.service'
 import { CandidateService } from '../../../core/services/candidate.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class FormComponent implements OnInit {
   itsEditMode: Boolean = false;
   constructor(private _scCandidate: CandidateService,
      private _formBuilder: FormBuilder,
-     private _activatedRoute: ActivatedRoute) {  this.createFormGroup(); }
+     private _activatedRoute: ActivatedRoute,  private _scAlert: AlertService) {  this.createFormGroup(); }
 
   ngOnInit() {
     this.getBookSaved();
@@ -155,12 +155,12 @@ export class FormComponent implements OnInit {
   onAddCandidate() {
     if (!this.formGroup.value.id) {
       this._scCandidate.create(this.formGroup.value).subscribe(resp => {
-
+        this._scAlert.success('Registro criado com sucesso.');
         }
       );
     } else {
       this._scCandidate.update(this.formGroup.value).subscribe(resp => {
-
+        this._scAlert.success('Registro editado com sucesso.');
         }
       );
     }

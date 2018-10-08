@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { Router } from '@angular/router';
 import { CandidateService } from '../../../core/services/candidate.service';
-
+import { AlertService } from '../../../core/services/alert/alert.service'
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -15,7 +15,7 @@ export class ListComponent implements OnInit {
 
 
   constructor( private _scCandidate: CandidateService,
-    private _router: Router) {}
+    private _router: Router, private _scAlert: AlertService) {}
 
   ngOnInit() {
 
@@ -83,6 +83,7 @@ export class ListComponent implements OnInit {
   onCustom(event) {
     if (event.action === 'delete') {
       this._scCandidate.delete(event.data.id).subscribe(resp => {
+          this._scAlert.success('Registro removido com sucesso.');
           this.candidates.remove(event.data);
       });
     } else {

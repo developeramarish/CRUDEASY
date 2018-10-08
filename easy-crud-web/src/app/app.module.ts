@@ -8,11 +8,15 @@ import { ListComponent } from './components/candidate/list/list.component';
 import { CandidateService } from './core/services/candidate.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { AlertService } from './core/services/alert/alert.service';
+import { AlertComponent } from './core/directiva/alert/alert.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
-    ListComponent
+    ListComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -20,9 +24,9 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    Ng2SmartTableModule
+    Ng2SmartTableModule,
   ],
-  providers: [CandidateService],
+  providers: [CandidateService, AlertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
