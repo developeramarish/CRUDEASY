@@ -1,20 +1,23 @@
+<h1>Talentos EASY.ROCKYS</h1>
+<br />
+<hr />
 <form [formGroup]="formGroup" class="container form-horizontal" (ngSubmit)="onAddCandidate()">
   <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
     <li class="nav-item">
-      <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home"
-        aria-selected="true">Home</a>
+      <a class="nav-link active" id="pills-candidate-tab" data-toggle="pill" href="#pills-candidate" role="tab" aria-controls="pills-home"
+        aria-selected="true">Dados Candidato</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile"
-        aria-selected="false">Profile</a>
+      <a class="nav-link" id="pills-bank-tab" data-toggle="pill" href="#pills-bank" role="tab" aria-controls="pills-bank"
+        aria-selected="false">Dados bancários</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact"
-        aria-selected="false">Contact</a>
+      <a class="nav-link" id="pills-knowledge-tab" data-toggle="pill" href="#pills-knowledge" role="tab" aria-controls="pills-knowledge"
+        aria-selected="false">Conhecimento</a>
     </li>
   </ul>
   <div class="tab-content" id="pills-tabContent">
-    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+    <div class="tab-pane fade show active" id="pills-candidate" role="tabpanel" aria-labelledby="pills-candidate-tab">
 
       <div class="row">
         <div class="col">
@@ -40,6 +43,14 @@
           <input type="text" class="form-control" id="portfolio" formControlName="portfolio" placeholder="Portifolio">
         </div>
       </div>
+      <div class="row">
+          <div class="col">
+            <input type="text" class="form-control" id="state"formControlName="state"  placeholder="Estado">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" id="city" formControlName="city" placeholder="Cidade">
+          </div>
+        </div>
       <div class="row">
         <div class="col">
           <label class="checkbox-inline">
@@ -98,7 +109,7 @@
         </div>
       </div>
     </div> <!-- END CANDIDATE-->
-    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+    <div class="tab-pane fade" id="pills-bank" role="tabpanel" aria-labelledby="pills-bank-tab">
       <!-- BANK -->
       <div class="row">
         <div class="col">
@@ -110,10 +121,10 @@
       </div>
       <div class="row">
         <div class="col">
-          <input type="text" class="form-control" id="bankName" formControlName="bankName" placeholder="Recebedor">
+          <input type="text" class="form-control" id="bankName" formControlName="bankName" placeholder="Nome do banco">
         </div>
         <div class="col">
-          <input type="text" class="form-control" id="agency" formControlName="agency" placeholder="CPF Recebedor">
+          <input type="text" class="form-control" id="agency" formControlName="agency" placeholder="Agencia">
         </div>
         <div class="col">
           <input type="text" class="form-control" id="account" formControlName="account"  placeholder="Conta">
@@ -132,73 +143,103 @@
         </div>
       </div>
     </div><!-- END BANK-->
-    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+    <div class="tab-pane fade" id="pills-knowledge" role="tabpanel" aria-labelledby="pills-knowledge-tab">
       <div class="row">
         <div class="col">
-          <input type="text" class="form-control" formControlName="ionic" id="ionic" placeholder="Ionic">
+            <label  class="control-label">Ionic</label>
+          <input type="number" class="form-control" formControlName="ionic" id="ionic" placeholder="Ionic">
         </div>
         <div class="col">
-          <input type="text" class="form-control" formControlName="android" id="android" placeholder="Android">
+            <label  class="control-label">Android</label>
+          <input type="number" class="form-control" formControlName="android" id="android" placeholder="Android">
         </div>
         <div class="col">
-          <input type="text" class="form-control" formControlName="ios"  id="ios" placeholder="Ios">
+            <label  class="control-label">IOS</label>
+          <input type="number" class="form-control" formControlName="ios"  id="ios" placeholder="Ios">
         </div>
         <div class="col">
-          <input type="text" class="form-control" formControlName="html" id="Html" placeholder="Html">
+            <label  class="control-label">HTML</label>
+          <input type="number" class="form-control" formControlName="html" id="html" placeholder="Html">
         </div>
         <div class="col">
-          <input type="text" class="form-control"formControlName="css"  id="css" placeholder="Bootstrap">
+            <label  class="control-label">CSS</label>
+          <input type="number" class="form-control"formControlName="css"  id="css" placeholder="Bootstrap">
         </div>
         <div class="col">
-          <input type="text" class="form-control" formControlName="jquery" id="jquery" placeholder="Angular">
+            <label  class="control-label">JQUERY</label>
+          <input type="number" class="form-control" formControlName="jquery" id="jquery" placeholder="jquery">
         </div>
       </div>
       <div class="row">
         <div class="col">
-          <input type="text" class="form-control" formControlName="java" id="java" placeholder="Asp">
+            <label  class="control-label">JAVA</label>
+          <input type="number" class="form-control" formControlName="java" id="java" placeholder="java">
         </div>
         <div class="col">
-          <input type="text" class="form-control"formControlName="c" id="c" placeholder="C">
+            <label  class="control-label">C</label>
+          <input type="number" class="form-control"formControlName="c" id="c" placeholder="C">
         </div>
         <div class="col">
-          <input type="text" class="form-control" formControlName="cplusplus" id="cplusplus" placeholder="Cplusplus">
+            <label  class="control-label">C++</label>
+          <input type="number" class="form-control" formControlName="cplusplus" id="cplusplus" placeholder="Cplusplus">
         </div>
         <div class="col">
-          <input type="text" class="form-control"formControlName="cake" id="cake" placeholder="Django">
+            <label  class="control-label">CAKE</label>
+          <input type="number" class="form-control"formControlName="cake" id="cake" placeholder="Django">
         </div>
         <div class="col">
-          <input type="text" class="form-control" formControlName="magento" id="magento" placeholder="Magento">
+            <label  class="control-label">MAGENTO</label>
+          <input type="number" class="form-control" formControlName="magento" id="magento" placeholder="Magento">
         </div>
         <div class="col">
-          <input type="text" class="form-control" formControlName="php" id="php" placeholder="Php">
+            <label  class="control-label">PHP</label>
+          <input type="number" class="form-control" formControlName="php" id="php" placeholder="Php">
         </div>
       </div>
       <div class="row">
         <div class="col">
-          <input type="text" class="form-control" formControlName="wordpress" id="wordpress" placeholder="Python">
+            <label  class="control-label">WORDPRESS</label>
+          <input type="number" class="form-control" formControlName="wordpress" id="wordpress" placeholder="Python">
         </div>
         <div class="col">
-          <input type="text" class="form-control" formControlName="ruby" id="ruby" placeholder="SqlServer">
+            <label  class="control-label">RUBY</label>
+          <input type="number" class="form-control" formControlName="ruby" id="ruby" placeholder="SqlServer">
         </div>
         <div class="col">
-          <input type="text" class="form-control" formControlName="mySql" id="mySql" placeholder="MySql">
+            <label  class="control-label">MYSQL</label>
+          <input type="number" class="form-control" formControlName="mySql" id="mySql" placeholder="MySql">
         </div>
         <div class="col">
-          <input type="text" class="form-control" formControlName="salesforce" id="salesforce" placeholder="Salesforce">
+            <label  class="control-label">SALESFORCE</label>
+          <input type="number" class="form-control" formControlName="salesforce" id="salesforce" placeholder="Salesforce">
         </div>
         <div class="col">
-          <input type="text" class="form-control" formControlName="photoshop" id="photoshop" placeholder="Photoshop">
+            <label  class="control-label">PHOTOSHOP</label>
+          <input type="number" class="form-control" formControlName="photoshop" id="photoshop" placeholder="Photoshop">
         </div>
         <div class="col">
-          <input type="text" class="form-control" formControlName="illustrator" id="illustrator" placeholder="Illustrator">
+            <label  class="control-label">illustrator</label>
+          <input type="number" class="form-control" formControlName="illustrator" id="illustrator" placeholder="Illustrator">
         </div>
       </div>
       <div class="row">
           <div class="col">
-              <input type="text" class="form-control" formControlName="seo" id="seo" placeholder="SEO">
+              <label  class="control-label">Angular</label>
+              <input type="number" class="form-control" formControlName="angular" id="angular" placeholder="angular">
             </div>
           <div class="col">
-              <input type="text" class="form-control" formControlName="others" id="others" placeholder="Outros">
+              <label  class="control-label">SEO</label>
+              <input type="number" class="form-control" formControlName="seo" id="seo" placeholder="SEO">
+            </div>
+            <div class="col">
+                <label  class="control-label">ASP</label>
+                <input type="number" class="form-control" formControlName="asp" id="asp" placeholder="ASP">
+              </div>
+      </div>
+      <div class="row">
+          <div class="col">
+              <label  class="control-label">Others</label>
+              <input type="number" class="form-control" formControlName="others" id="others" placeholder="Outros">
             </div>
       </div>
     </div>
@@ -210,7 +251,8 @@
             <input
               type="submit"
               class="btn btn-primary"
-              [value]="buttonSaveLabel"
+              value="Salvar"
+              id= "btnSave"
               style="padding-left: 50px; padding-right: 50px"
              />
           </div>

@@ -46,10 +46,10 @@ export class FormComponent implements OnInit {
       crudLink: ['', ],
       recipient: ['', ],
       cpfRecipient: ['', ],
-      chain: ['', ],
+      chain: false,
       bankName: ['', ],
       agency: ['', ],
-      account: false,
+      account: ['', ],
       savings: false,
       ionic: [0, ],
       android: [0, ],
@@ -155,16 +155,12 @@ export class FormComponent implements OnInit {
   onAddCandidate() {
     if (!this.formGroup.value.id) {
       this._scCandidate.create(this.formGroup.value).subscribe(resp => {
-        if (resp.success) {
 
-          }
         }
       );
     } else {
       this._scCandidate.update(this.formGroup.value).subscribe(resp => {
-        if (resp.success) {
 
-          }
         }
       );
     }
